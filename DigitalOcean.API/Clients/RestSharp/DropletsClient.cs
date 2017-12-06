@@ -35,7 +35,6 @@ namespace DOcean.API.Clients.RestSharp
             {
                 new Parameter {Name = "name", Value = tagName, Type = ParameterType.UrlSegment}
             };
-
             return _connection.GetPaginated<Droplet>("droplets?tag_name={name}", parameters, "droplets", token);
         }
 

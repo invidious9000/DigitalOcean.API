@@ -32,11 +32,14 @@ namespace DOcean.API
             Keys = new KeysClient(_connection);
             Regions = new RegionsClient(_connection);
             Sizes = new SizesClient(_connection);
+            Snapshots = new SnapshotsClient(_connection);
             Tags = new TagsClient(_connection);
+            Volumes = new VolumesClient(_connection);
         }
 
         #region IDigitalOceanClient Members
 
+        public IVolumesClient Volumes { get; }
         public IRateLimit Rates => _connection.Rates;
 
         public IActionsClient Actions { get; }
@@ -51,6 +54,7 @@ namespace DOcean.API
         public IKeysClient Keys { get; }
         public IRegionsClient Regions { get; }
         public ISizesClient Sizes { get; }
+        public ISnapshotsClient Snapshots { get; }
         public ITagsClient Tags { get; }
 
         #endregion

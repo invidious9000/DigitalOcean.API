@@ -13,7 +13,7 @@ namespace DOcean.API.Exceptions
             {429, "Rate Limit Exceeded"}
         };
 
-        public HttpStatusCode StatusCode { get; private set; }
+        public HttpStatusCode StatusCode { get; }
 
         public override string Message => _errors.ContainsKey((int) StatusCode)
             ? _errors[(int) StatusCode]

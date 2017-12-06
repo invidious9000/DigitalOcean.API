@@ -17,8 +17,11 @@ namespace DOcean.API
         IKeysClient Keys { get; }
         IRegionsClient Regions { get; }
         ISizesClient Sizes { get; }
+        ISnapshotsClient Snapshots { get; }
+        ITagsClient Tags { get; }
+        IVolumesClient Volumes { get; }
 
         IRateLimit Rates { get; }
-        ITagsClient Tags { get; }
+   
     }
 }

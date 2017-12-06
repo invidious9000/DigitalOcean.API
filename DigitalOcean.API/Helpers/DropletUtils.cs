@@ -18,13 +18,17 @@ namespace DOcean.API.Helpers
             Droplet droplet;
             var startTime = DateTime.Now;
 
-            while ((droplet = await client.Get(dropletId)).Status != status && !token.IsCancellationRequested)
+            while (!string.Equals((droplet = await client.Get(dropletId, token)).Status, status, StringComparison.InvariantCultureIgnoreCase) && !token.IsCancellationRequested)
             {
                 if (DateTime.Now - startTime < timeout)
                     throw new TimeoutException();
 
                 await Task.Delay(TimeSpan.FromSeconds(1), token);
             }
+
+            if (token.IsCancellationRequested)
+                throw new TaskCanceledException();
+
             return droplet;
         }
     }
