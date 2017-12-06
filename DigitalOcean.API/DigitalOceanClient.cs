@@ -11,7 +11,7 @@ namespace DigitalOcean.API {
             var client = new RestClient(DigitalOceanApiUrl) {
                 UserAgent = "digitalocean-api-dotnet"
             };
-            client.AddDefaultHeader("Authorization", string.Format("Bearer {0}", token));
+            client.AddDefaultHeader("Authorization", $"Bearer {token}");
 
             _connection = new Connection(client);
 
@@ -20,6 +20,7 @@ namespace DigitalOcean.API {
             Domains = new DomainsClient(_connection);
             DropletActions = new DropletActionsClient(_connection);
             Droplets = new DropletsClient(_connection);
+            FloatingIps = new FloatingIpsClient(_connection);
             ImageActions = new ImageActionsClient(_connection);
             Images = new ImagesClient(_connection);
             Keys = new KeysClient(_connection);
@@ -30,21 +31,20 @@ namespace DigitalOcean.API {
 
         #region IDigitalOceanClient Members
 
-        public IRateLimit Rates {
-            get { return _connection.Rates; }
-        }
+        public IRateLimit Rates => _connection.Rates;
 
-        public IActionsClient Actions { get; private set; }
-        public IDomainRecordsClient DomainRecords { get; private set; }
-        public IDomainsClient Domains { get; private set; }
-        public IDropletActionsClient DropletActions { get; private set; }
-        public IDropletsClient Droplets { get; private set; }
-        public IImageActionsClient ImageActions { get; private set; }
-        public IImagesClient Images { get; private set; }
-        public IKeysClient Keys { get; private set; }
-        public IRegionsClient Regions { get; private set; }
-        public ISizesClient Sizes { get; private set; }
-        public ITagsClient Tags { get; private set; }
+        public IActionsClient Actions { get; }
+        public IDomainRecordsClient DomainRecords { get; }
+        public IDomainsClient Domains { get; }
+        public IDropletActionsClient DropletActions { get; }
+        public IDropletsClient Droplets { get; }
+        public IFloatingIpsClient FloatingIps { get; }
+        public IImageActionsClient ImageActions { get; }
+        public IImagesClient Images { get; }
+        public IKeysClient Keys { get; }
+        public IRegionsClient Regions { get; }
+        public ISizesClient Sizes { get; }
+        public ITagsClient Tags { get; }
 
         #endregion
     }

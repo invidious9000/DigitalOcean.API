@@ -53,10 +53,12 @@
     <Compile Include="Clients\DomainsClient.cs" />
     <Compile Include="Clients\DropletActionsClient.cs" />
     <Compile Include="Clients\DropletsClient.cs" />
+    <Compile Include="Clients\FloatingIpsClient.cs" />
     <Compile Include="Clients\IDomainRecordsClient.cs" />
     <Compile Include="Clients\IDomainsClient.cs" />
     <Compile Include="Clients\IDropletActionsClient.cs" />
     <Compile Include="Clients\IDropletsClient.cs" />
+    <Compile Include="Clients\IFloatingIpsClient.cs" />
     <Compile Include="Clients\IImageActionsClient.cs" />
     <Compile Include="Clients\IImagesClient.cs" />
     <Compile Include="Clients\IKeysClient.cs" />
@@ -83,6 +85,8 @@
     <Compile Include="Models\Requests\Domain.cs" />
     <Compile Include="Models\Requests\DomainRecord.cs" />
     <Compile Include="Models\Requests\Droplet.cs" />
+    <Compile Include="Models\Requests\FloatingIp.cs" />
+    <Compile Include="Models\Requests\FloatingIpAction.cs" />
     <Compile Include="Models\Requests\Image.cs" />
     <Compile Include="Models\Requests\Key.cs" />
     <Compile Include="Models\Requests\Tag.cs" />
@@ -91,6 +95,7 @@
     <Compile Include="Models\Responses\Domain.cs" />
     <Compile Include="Models\Responses\DomainRecord.cs" />
     <Compile Include="Models\Responses\Droplet.cs" />
+    <Compile Include="Models\Responses\FloatingIp.cs" />
     <Compile Include="Models\Responses\Image.cs" />
     <Compile Include="Models\Responses\Kernel.cs" />
     <Compile Include="Models\Responses\Key.cs" />
