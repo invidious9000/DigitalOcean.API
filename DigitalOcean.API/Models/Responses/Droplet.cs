@@ -93,5 +93,10 @@ namespace DOcean.API.Models.Responses
         /// An array of Tags the Droplet has been tagged with.
         /// </summary>
         public List<string> Tags { get; set; }
+
+        /// <summary>
+        /// A flat array including the unique identifier for each Block Storage volume attached to the Droplet.
+        /// </summary>
+        public List<string> VolumeIds { get; set; }
     }
 }

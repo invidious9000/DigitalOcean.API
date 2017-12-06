@@ -71,5 +71,18 @@ namespace DOcean.API.Models.Requests
         /// </summary>
         [JsonProperty("tags")]
         public List<object> Tags { get; set; }
+
+        /// <summary>
+        // /A boolean indicating whether to install the DigitalOcean agent for monitoring.
+        /// </summary>
+        [JsonProperty("monitoring")]
+        public bool Monitoring { get; set; }
+
+        /// <summary>
+        /// A flat array including the unique string identifier for each Block Storage volume to be attached to the Droplet. 
+        /// At the moment a volume can only be attached to a single Droplet.
+        /// </summary>
+        [JsonProperty("volumes")]
+        public List<string> Volumes { get; set; }
     }
 }
