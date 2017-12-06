@@ -20,7 +20,7 @@ namespace DOcean.API.Helpers
 
             while (!string.Equals((droplet = await client.Get(dropletId, token)).Status, status, StringComparison.InvariantCultureIgnoreCase) && !token.IsCancellationRequested)
             {
-                if (DateTime.Now - startTime < timeout)
+                if (DateTime.Now - startTime > timeout)
                     throw new TimeoutException();
 
                 await Task.Delay(TimeSpan.FromSeconds(1), token);
