@@ -78,9 +78,9 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\DigitalOcean.API\DigitalOcean.API.csproj">
+    <ProjectReference Include="..\DigitalOcean.API\DigitalOcean.API-invidious9000.csproj">
       <Project>{501971b1-c59f-4583-a4e3-2109c67b644c}</Project>
-      <Name>DigitalOcean.API</Name>
+      <Name>DigitalOcean.API-invidious9000</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup />
