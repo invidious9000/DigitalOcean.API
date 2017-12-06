@@ -29,13 +29,13 @@ namespace DOcean.API.Http
             request.Method = method;
 
             if (data == null || method == Method.GET)
-                return await Client.ExecuteTaskRaw(request).ConfigureAwait(false);
+                return await Client.ExecuteTaskRaw(request, token).ConfigureAwait(false);
 
             request.RequestFormat = DataFormat.Json;
             request.JsonSerializer = new JsonNetSerializer();
             request.AddBody(data);
 
-            return await Client.ExecuteTaskRaw(request).ConfigureAwait(false);
+            return await Client.ExecuteTaskRaw(request, token).ConfigureAwait(false);
         }
 
         public async Task<T> ExecuteRequest<T>(string endpoint, IList<Parameter> parameters,
@@ -47,13 +47,13 @@ namespace DOcean.API.Http
             request.Method = method;
 
             if (data == null || method == Method.GET)
-                return await Client.ExecuteTask<T>(request).ConfigureAwait(false);
+                return await Client.ExecuteTask<T>(request, token).ConfigureAwait(false);
 
             request.RequestFormat = DataFormat.Json;
             request.JsonSerializer = new JsonNetSerializer();
             request.AddBody(data);
 
-            return await Client.ExecuteTask<T>(request).ConfigureAwait(false);
+            return await Client.ExecuteTask<T>(request, token).ConfigureAwait(false);
         }
 
         public async Task<IReadOnlyList<T>> GetPaginated<T>(string endpoint, IList<Parameter> parameters,
