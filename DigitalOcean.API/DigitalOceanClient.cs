@@ -1,8 +1,8 @@
-﻿using DigitalOcean.API.Clients;
-using DigitalOcean.API.Http;
+﻿using DOcean.API.Clients;
+using DOcean.API.Http;
 using RestSharp;
 
-namespace DigitalOcean.API
+namespace DOcean.API
 {
     public class DigitalOceanClient : IDigitalOceanClient
     {

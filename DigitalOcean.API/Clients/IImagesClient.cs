@@ -1,9 +1,9 @@
 ﻿using System.Collections.Generic;
 using System.Threading.Tasks;
-using DigitalOcean.API.Models.Requests;
-using Image = DigitalOcean.API.Models.Responses.Image;
+using DOcean.API.Models.Requests;
+using Image = DOcean.API.Models.Responses.Image;
 
-namespace DigitalOcean.API.Clients
+namespace DOcean.API.Clients
 {
     public interface IImagesClient
     {

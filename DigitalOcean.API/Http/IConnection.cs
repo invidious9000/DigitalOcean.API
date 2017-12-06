@@ -2,7 +2,7 @@
 using System.Threading.Tasks;
 using RestSharp;
 
-namespace DigitalOcean.API.Http
+namespace DOcean.API.Http
 {
     public interface IConnection
     {

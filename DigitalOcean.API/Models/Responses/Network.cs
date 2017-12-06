@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
 
-namespace DigitalOcean.API.Models.Responses
+namespace DOcean.API.Models.Responses
 {
     public class Interface
     {

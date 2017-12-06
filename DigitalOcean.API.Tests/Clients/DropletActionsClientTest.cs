@@ -1,13 +1,13 @@
 ﻿using System;
 using System.Collections.Generic;
-using DigitalOcean.API.Clients;
-using DigitalOcean.API.Http;
+using DOcean.API.Clients;
+using DOcean.API.Http;
 using NSubstitute;
 using RestSharp;
 using Xunit;
-using Action = DigitalOcean.API.Models.Requests.Action;
+using Action = DOcean.API.Models.Requests.Action;
 
-namespace DigitalOcean.API.Tests.Clients {
+namespace DOcean.API.Tests.Clients {
     public class DropletActionsClientTest {
         [Fact]
         public void CorrectRequestForReboot() {

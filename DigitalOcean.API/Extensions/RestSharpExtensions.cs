@@ -1,11 +1,11 @@
 ﻿using System;
 using System.Threading.Tasks;
-using DigitalOcean.API.Exceptions;
+using DOcean.API.Exceptions;
 using RestSharp;
 using RestSharp.Deserializers;
 using RestSharp.Extensions;
 
-namespace DigitalOcean.API.Extensions
+namespace DOcean.API.Extensions
 {
     public static class RestSharpExtensions
     {

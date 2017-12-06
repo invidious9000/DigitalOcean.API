@@ -1,7 +1,7 @@
 ﻿using System.Collections.Generic;
 using Newtonsoft.Json;
 
-namespace DigitalOcean.API.Models.Requests
+namespace DOcean.API.Models.Requests
 {
     public class Droplet
     {

@@ -2,7 +2,7 @@
 using System.Linq;
 using RestSharp;
 
-namespace DigitalOcean.API.Http
+namespace DOcean.API.Http
 {
     public class RateLimit : IRateLimit
     {

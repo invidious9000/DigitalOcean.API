@@ -6,7 +6,7 @@
     <ProjectGuid>{ECFC890B-74CE-4B6A-9C23-F865A2A27C40}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>DigitalOcean.API.Tests</RootNamespace>
+    <RootNamespace>DOcean.API.Tests</RootNamespace>
     <AssemblyName>DOcean.API.Tests</AssemblyName>
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>

@@ -1,11 +1,10 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Threading.Tasks;
-using DigitalOcean.API.Http;
+using DOcean.API.Http;
 using RestSharp;
-using Action = DigitalOcean.API.Models.Responses.Action;
+using Action = DOcean.API.Models.Responses.Action;
 
-namespace DigitalOcean.API.Clients
+namespace DOcean.API.Clients
 {
     public class ImageActionsClient : IImageActionsClient
     {

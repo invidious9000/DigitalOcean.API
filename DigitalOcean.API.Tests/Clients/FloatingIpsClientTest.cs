@@ -3,14 +3,14 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using DigitalOcean.API.Clients;
-using DigitalOcean.API.Http;
-using DigitalOcean.API.Models.Requests;
+using DOcean.API.Clients;
+using DOcean.API.Http;
+using DOcean.API.Models.Requests;
 using NSubstitute;
 using Xunit;
-using FloatingIp = DigitalOcean.API.Models.Responses.FloatingIp;
+using FloatingIp = DOcean.API.Models.Responses.FloatingIp;
 
-namespace DigitalOcean.API.Tests.Clients
+namespace DOcean.API.Tests.Clients
 {
   public  class FloatingIpsClientTest
     {

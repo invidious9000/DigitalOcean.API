@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Net;
 
-namespace DigitalOcean.API.Exceptions
+namespace DOcean.API.Exceptions
 {
     public class ApiException : Exception
     {

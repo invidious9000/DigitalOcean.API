@@ -1,12 +1,12 @@
 ﻿using System.Collections.Generic;
-using DigitalOcean.API.Clients;
-using DigitalOcean.API.Http;
-using DigitalOcean.API.Models.Requests;
+using DOcean.API.Clients;
+using DOcean.API.Http;
+using DOcean.API.Models.Requests;
 using NSubstitute;
 using RestSharp;
 using Xunit;
 
-namespace DigitalOcean.API.Tests.Clients {
+namespace DOcean.API.Tests.Clients {
     public class ImageActionsClientTest {
         [Fact]
         public void CorrectRequestForTransfer() {

@@ -1,7 +1,7 @@
 ﻿using System.Threading.Tasks;
-using DigitalOcean.API.Models.Responses;
+using DOcean.API.Models.Responses;
 
-namespace DigitalOcean.API.Clients
+namespace DOcean.API.Clients
 {
     public interface IImageActionsClient
     {

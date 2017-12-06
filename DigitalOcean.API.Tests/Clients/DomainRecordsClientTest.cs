@@ -1,13 +1,13 @@
 ﻿using System.Collections.Generic;
 using System.Threading.Tasks;
-using DigitalOcean.API.Clients;
-using DigitalOcean.API.Http;
-using DigitalOcean.API.Models.Responses;
+using DOcean.API.Clients;
+using DOcean.API.Http;
+using DOcean.API.Models.Responses;
 using NSubstitute;
 using RestSharp;
 using Xunit;
 
-namespace DigitalOcean.API.Tests.Clients {
+namespace DOcean.API.Tests.Clients {
     public class DomainRecordsClientTest {
         [Fact]
         public void CorrectRequestForGetAll() {

@@ -1,6 +1,4 @@
-﻿using System;
-
-namespace DigitalOcean.API.Models.Responses
+﻿namespace DOcean.API.Models.Responses
 {
     public class DropletUpgrade
     {

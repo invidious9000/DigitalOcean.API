@@ -1,9 +1,9 @@
 ﻿using System.Collections.Generic;
 using System.Threading.Tasks;
-using DigitalOcean.API.Http;
-using DigitalOcean.API.Models.Responses;
+using DOcean.API.Http;
+using DOcean.API.Models.Responses;
 
-namespace DigitalOcean.API.Clients
+namespace DOcean.API.Clients
 {
     public class RegionsClient : IRegionsClient
     {

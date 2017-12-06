@@ -3,7 +3,7 @@ using Newtonsoft.Json;
 using RestSharp.Serializers;
 using JsonSerializer = Newtonsoft.Json.JsonSerializer;
 
-namespace DigitalOcean.API.Helpers
+namespace DOcean.API.Helpers
 {
     internal class JsonNetSerializer : ISerializer
     {

@@ -6,11 +6,13 @@ using System.Runtime.InteropServices;
 // associated with an assembly.
 
 [assembly: AssemblyTitle("DOcean.API")]
-[assembly: AssemblyDescription("Forked from Thomas McNiven's .NET wrapper of the DigitalOcean API")]
+[assembly:
+    AssemblyDescription(
+        "Forked from Thomas McNiven's .NET wrapper of the DigitalOcean API https://github.com/vevix/DigitalOcean.API")]
 [assembly: AssemblyConfiguration("")]
-[assembly: AssemblyCompany("Thomas McNiven")]
+[assembly: AssemblyCompany("Mathieu Roy, Thomas McNiven")]
 [assembly: AssemblyProduct("DOcean.API")]
-[assembly: AssemblyCopyright("Copyright © 2014")]
+[assembly: AssemblyCopyright("Copyright © 2017")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
 

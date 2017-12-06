@@ -1,10 +1,11 @@
 using System.Collections.Generic;
 using System.Threading.Tasks;
-using DigitalOcean.API.Http;
-using DigitalOcean.API.Models.Responses;
+using DOcean.API.Http;
+using DOcean.API.Models.Requests;
 using RestSharp;
+using Tag = DOcean.API.Models.Responses.Tag;
 
-namespace DigitalOcean.API.Clients
+namespace DOcean.API.Clients
 {
     public class TagsClient : ITagsClient
     {
@@ -55,13 +56,13 @@ namespace DigitalOcean.API.Clients
         /// </summary>
         public Task Tag(string tagName, List<KeyValuePair<string, string>> resources)
         {
-            var data = new Models.Requests.TagResource
+            var data = new TagResource
             {
-                Resources = new List<Models.Requests.TagResource.Resource>()
+                Resources = new List<TagResource.Resource>()
             };
 
             foreach (var resource in resources)
-                data.Resources.Add(new Models.Requests.TagResource.Resource
+                data.Resources.Add(new TagResource.Resource
                 {
                     Id = resource.Key,
                     Type = resource.Value
@@ -80,13 +81,13 @@ namespace DigitalOcean.API.Clients
         /// </summary>
         public Task Untag(string tagName, List<KeyValuePair<string, string>> resources)
         {
-            var data = new Models.Requests.TagResource
+            var data = new TagResource
             {
-                Resources = new List<Models.Requests.TagResource.Resource>()
+                Resources = new List<TagResource.Resource>()
             };
 
             foreach (var resource in resources)
-                data.Resources.Add(new Models.Requests.TagResource.Resource
+                data.Resources.Add(new TagResource.Resource
                 {
                     Id = resource.Key,
                     Type = resource.Value

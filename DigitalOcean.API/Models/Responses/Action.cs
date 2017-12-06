@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace DigitalOcean.API.Models.Responses
+namespace DOcean.API.Models.Responses
 {
     /// <summary>
     /// Actions are records of events that have occurred on the resources in your account. These can be things like rebooting a

@@ -1,11 +1,10 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Threading.Tasks;
-using DigitalOcean.API.Http;
-using DigitalOcean.API.Models.Responses;
+using DOcean.API.Http;
+using DOcean.API.Models.Responses;
 using RestSharp;
 
-namespace DigitalOcean.API.Clients
+namespace DOcean.API.Clients
 {
     public class DomainsClient : IDomainsClient
     {

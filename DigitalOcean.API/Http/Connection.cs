@@ -1,14 +1,13 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Threading.Tasks;
-using DigitalOcean.API.Extensions;
-using DigitalOcean.API.Helpers;
-using DigitalOcean.API.Models.Responses;
+using DOcean.API.Extensions;
+using DOcean.API.Helpers;
+using DOcean.API.Models.Responses;
 using RestSharp;
 using RestSharp.Deserializers;
 
-namespace DigitalOcean.API.Http
+namespace DOcean.API.Http
 {
     public class Connection : IConnection
     {

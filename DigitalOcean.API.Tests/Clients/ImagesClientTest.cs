@@ -1,13 +1,13 @@
 ﻿using System.Collections.Generic;
-using DigitalOcean.API.Clients;
-using DigitalOcean.API.Http;
-using DigitalOcean.API.Models.Requests;
+using DOcean.API.Clients;
+using DOcean.API.Http;
+using DOcean.API.Models.Requests;
 using NSubstitute;
 using RestSharp;
 using Xunit;
-using Image = DigitalOcean.API.Models.Responses.Image;
+using Image = DOcean.API.Models.Responses.Image;
 
-namespace DigitalOcean.API.Tests.Clients {
+namespace DOcean.API.Tests.Clients {
     public class ImagesClientTest {
         [Fact]
         public void CorrectRequestForGetAll() {

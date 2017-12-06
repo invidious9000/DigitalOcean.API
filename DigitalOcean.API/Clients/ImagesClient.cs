@@ -1,12 +1,12 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
-using DigitalOcean.API.Http;
-using DigitalOcean.API.Models.Requests;
+using DOcean.API.Http;
+using DOcean.API.Models.Requests;
 using RestSharp;
-using Image = DigitalOcean.API.Models.Responses.Image;
+using Image = DOcean.API.Models.Responses.Image;
 
-namespace DigitalOcean.API.Clients
+namespace DOcean.API.Clients
 {
     public class ImagesClient : IImagesClient
     {

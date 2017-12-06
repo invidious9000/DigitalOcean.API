@@ -1,4 +1,4 @@
-﻿namespace DigitalOcean.API.Models.Responses
+﻿namespace DOcean.API.Models.Responses
 {
     public class Domain
     {

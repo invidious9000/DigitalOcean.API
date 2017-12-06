@@ -1,4 +1,4 @@
-﻿namespace DigitalOcean.API.Http
+﻿namespace DOcean.API.Http
 {
     public interface IRateLimit
     {
