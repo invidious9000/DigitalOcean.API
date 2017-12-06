@@ -1,18 +1,12 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using DOcean.API.Clients;
+﻿using DOcean.API.Clients.RestSharp;
 using DOcean.API.Http;
-using DOcean.API.Models.Requests;
+using DOcean.API.Models.Responses;
 using NSubstitute;
 using Xunit;
-using FloatingIp = DOcean.API.Models.Responses.FloatingIp;
 
 namespace DOcean.API.Tests.Clients
 {
-  public  class FloatingIpsClientTest
+    public class FloatingIpsClientTest
     {
         [Fact]
         public void CorrectRequestForGetAll()

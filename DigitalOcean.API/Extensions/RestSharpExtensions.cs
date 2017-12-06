@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Threading;
 using System.Threading.Tasks;
 using DOcean.API.Exceptions;
 using RestSharp;
@@ -9,16 +10,16 @@ namespace DOcean.API.Extensions
 {
     public static class RestSharpExtensions
     {
-        public static async Task<T> ExecuteTask<T>(this IRestClient client, IRestRequest request)
+        public static async Task<T> ExecuteTask<T>(this IRestClient client, IRestRequest request, CancellationToken token = default(CancellationToken))
             where T : new()
         {
-            var ret = await client.ExecuteTaskAsync(request).ConfigureAwait(false);
+            var ret = await client.ExecuteTaskAsync(request, token).ConfigureAwait(false);
             return ret.ThrowIfException().Deserialize<T>();
         }
 
-        public static async Task<IRestResponse> ExecuteTaskRaw(this IRestClient client, IRestRequest request)
+        public static async Task<IRestResponse> ExecuteTaskRaw(this IRestClient client, IRestRequest request, CancellationToken token = default(CancellationToken))
         {
-            var ret = await client.ExecuteTaskAsync(request).ConfigureAwait(false);
+            var ret = await client.ExecuteTaskAsync(request, token).ConfigureAwait(false);
             request.OnBeforeDeserialization(ret);
             return ret.ThrowIfException();
         }

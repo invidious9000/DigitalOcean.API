@@ -1,9 +1,10 @@
 ﻿using System.Collections.Generic;
+using System.Threading;
 using System.Threading.Tasks;
 using DOcean.API.Http;
 using DOcean.API.Models.Responses;
 
-namespace DOcean.API.Clients
+namespace DOcean.API.Clients.RestSharp
 {
     public class RegionsClient : IRegionsClient
     {
@@ -19,9 +20,9 @@ namespace DOcean.API.Clients
         /// <summary>
         /// Retrieve all DigitalOcean regions
         /// </summary>
-        public Task<IReadOnlyList<Region>> GetAll()
+        public Task<IReadOnlyList<Region>> GetAll(CancellationToken token = default(CancellationToken))
         {
-            return _connection.GetPaginated<Region>("regions", null, "regions");
+            return _connection.GetPaginated<Region>("regions", null, "regions", token);
         }
 
         #endregion

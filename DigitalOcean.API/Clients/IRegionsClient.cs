@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using System.Threading;
 using System.Threading.Tasks;
 using DOcean.API.Models.Responses;
 
@@ -9,6 +10,6 @@ namespace DOcean.API.Clients
         /// <summary>
         /// Retrieve all DigitalOcean regions
         /// </summary>
-        Task<IReadOnlyList<Region>> GetAll();
+        Task<IReadOnlyList<Region>> GetAll(CancellationToken token = default(CancellationToken));
     }
 }

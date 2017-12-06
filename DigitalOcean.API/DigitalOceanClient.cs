@@ -1,4 +1,5 @@
 ﻿using DOcean.API.Clients;
+using DOcean.API.Clients.RestSharp;
 using DOcean.API.Http;
 using RestSharp;
 

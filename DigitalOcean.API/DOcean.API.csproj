@@ -35,6 +35,9 @@
     <StartupObject />
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Newtonsoft.Json, Version=10.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.10.0.3\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Net" />
@@ -44,21 +47,18 @@
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System.Data" />
     <Reference Include="System.Xml" />
-    <Reference Include="Newtonsoft.Json">
-      <HintPath>..\packages\Newtonsoft.Json.6.0.3\lib\net45\Newtonsoft.Json.dll</HintPath>
-    </Reference>
     <Reference Include="RestSharp">
       <HintPath>..\packages\RestSharp.104.4.0\lib\net4\RestSharp.dll</HintPath>
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Clients\ActionsClient.cs" />
-    <Compile Include="Clients\DomainRecordsClient.cs" />
-    <Compile Include="Clients\DomainsClient.cs" />
-    <Compile Include="Clients\DropletActionsClient.cs" />
-    <Compile Include="Clients\DropletsClient.cs" />
-    <Compile Include="Clients\FloatingIpActionsClient.cs" />
-    <Compile Include="Clients\FloatingIpsClient.cs" />
+    <Compile Include="Clients\RestSharp\ActionsClient.cs" />
+    <Compile Include="Clients\RestSharp\DomainRecordsClient.cs" />
+    <Compile Include="Clients\RestSharp\DomainsClient.cs" />
+    <Compile Include="Clients\RestSharp\DropletActionsClient.cs" />
+    <Compile Include="Clients\RestSharp\DropletsClient.cs" />
+    <Compile Include="Clients\RestSharp\FloatingIpActionsClient.cs" />
+    <Compile Include="Clients\RestSharp\FloatingIpsClient.cs" />
     <Compile Include="Clients\IDomainRecordsClient.cs" />
     <Compile Include="Clients\IDomainsClient.cs" />
     <Compile Include="Clients\IDropletActionsClient.cs" />
@@ -68,15 +68,16 @@
     <Compile Include="Clients\IImageActionsClient.cs" />
     <Compile Include="Clients\IImagesClient.cs" />
     <Compile Include="Clients\IKeysClient.cs" />
-    <Compile Include="Clients\ImageActionsClient.cs" />
-    <Compile Include="Clients\ImagesClient.cs" />
+    <Compile Include="Clients\RestSharp\ImageActionsClient.cs" />
+    <Compile Include="Clients\RestSharp\ImagesClient.cs" />
     <Compile Include="Clients\IRegionsClient.cs" />
     <Compile Include="Clients\ISizesClient.cs" />
     <Compile Include="Clients\ITagsClient.cs" />
-    <Compile Include="Clients\KeysClient.cs" />
-    <Compile Include="Clients\RegionsClient.cs" />
-    <Compile Include="Clients\SizesClient.cs" />
-    <Compile Include="Clients\TagsClient.cs" />
+    <Compile Include="Clients\RestSharp\KeysClient.cs" />
+    <Compile Include="Clients\RestSharp\RegionsClient.cs" />
+    <Compile Include="Clients\RestSharp\SizesClient.cs" />
+    <Compile Include="Clients\RestSharp\TagsClient.cs" />
+    <Compile Include="Helpers\DropletUtils.cs" />
     <Compile Include="Http\Connection.cs" />
     <Compile Include="Clients\IActionsClient.cs" />
     <Compile Include="DigitalOceanClient.cs" />

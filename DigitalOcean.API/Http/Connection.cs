@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using System.Collections.ObjectModel;
+using System.Threading;
 using System.Threading.Tasks;
 using DOcean.API.Extensions;
 using DOcean.API.Helpers;
@@ -18,47 +19,47 @@ namespace DOcean.API.Http
 
         #region IConnection Members
 
-        public IRestClient Client { get; private set; }
+        public IRestClient Client { get; }
         public IRateLimit Rates { get; private set; }
 
         public async Task<IRestResponse> ExecuteRaw(string endpoint, IList<Parameter> parameters,
-            object data = null, Method method = Method.GET)
+            object data = null, Method method = Method.GET, CancellationToken token = default(CancellationToken))
         {
             var request = BuildRequest(endpoint, parameters);
             request.Method = method;
 
-            if (data != null && method != Method.GET)
-            {
-                request.RequestFormat = DataFormat.Json;
-                request.JsonSerializer = new JsonNetSerializer();
-                request.AddBody(data);
-            }
+            if (data == null || method == Method.GET)
+                return await Client.ExecuteTaskRaw(request).ConfigureAwait(false);
+
+            request.RequestFormat = DataFormat.Json;
+            request.JsonSerializer = new JsonNetSerializer();
+            request.AddBody(data);
 
             return await Client.ExecuteTaskRaw(request).ConfigureAwait(false);
         }
 
         public async Task<T> ExecuteRequest<T>(string endpoint, IList<Parameter> parameters,
-            object data = null, string expectedRoot = null, Method method = Method.GET)
+            object data = null, string expectedRoot = null, Method method = Method.GET, CancellationToken token = default(CancellationToken))
             where T : new()
         {
             var request = BuildRequest(endpoint, parameters);
             request.RootElement = expectedRoot;
             request.Method = method;
 
-            if (data != null && method != Method.GET)
-            {
-                request.RequestFormat = DataFormat.Json;
-                request.JsonSerializer = new JsonNetSerializer();
-                request.AddBody(data);
-            }
+            if (data == null || method == Method.GET)
+                return await Client.ExecuteTask<T>(request).ConfigureAwait(false);
+
+            request.RequestFormat = DataFormat.Json;
+            request.JsonSerializer = new JsonNetSerializer();
+            request.AddBody(data);
 
             return await Client.ExecuteTask<T>(request).ConfigureAwait(false);
         }
 
         public async Task<IReadOnlyList<T>> GetPaginated<T>(string endpoint, IList<Parameter> parameters,
-            string expectedRoot = null) where T : new()
+            string expectedRoot = null, CancellationToken token = default(CancellationToken)) where T : new()
         {
-            var first = await ExecuteRaw(endpoint, parameters).ConfigureAwait(false);
+            var first = await ExecuteRaw(endpoint, parameters, token: token).ConfigureAwait(false);
 
             // get page information
             var deserialize = new JsonDeserializer
@@ -74,10 +75,10 @@ namespace DOcean.API.Http
 
             // loop until we are finished
             var allItems = new List<T>(data);
-            while (page != null && page.Pages != null && !string.IsNullOrWhiteSpace(page.Pages.Next))
+            while (!string.IsNullOrWhiteSpace(page?.Pages?.Next))
             {
                 endpoint = page.Pages.Next.Replace(DigitalOceanClient.DigitalOceanApiUrl, "");
-                var iter = await ExecuteRaw(endpoint, null).ConfigureAwait(false);
+                var iter = await ExecuteRaw(endpoint, null, token: token).ConfigureAwait(false);
 
                 deserialize.RootElement = expectedRoot;
                 allItems.AddRange(deserialize.Deserialize<List<T>>(iter));

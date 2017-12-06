@@ -1,9 +1,10 @@
 ﻿using System.Collections.Generic;
+using System.Threading;
 using System.Threading.Tasks;
 using DOcean.API.Http;
 using DOcean.API.Models.Responses;
 
-namespace DOcean.API.Clients
+namespace DOcean.API.Clients.RestSharp
 {
     public class SizesClient : ISizesClient
     {
@@ -19,9 +20,9 @@ namespace DOcean.API.Clients
         /// <summary>
         /// Retrieve all DigitalOcean Droplet Sizes
         /// </summary>
-        public Task<IReadOnlyList<Size>> GetAll()
+        public Task<IReadOnlyList<Size>> GetAll(CancellationToken token = default(CancellationToken))
         {
-            return _connection.GetPaginated<Size>("sizes", null, "sizes");
+            return _connection.GetPaginated<Size>("sizes", null, "sizes", token);
         }
 
         #endregion

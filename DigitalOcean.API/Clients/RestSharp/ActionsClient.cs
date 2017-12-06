@@ -1,10 +1,11 @@
 ﻿using System.Collections.Generic;
+using System.Threading;
 using System.Threading.Tasks;
 using DOcean.API.Http;
 using DOcean.API.Models.Responses;
 using RestSharp;
 
-namespace DOcean.API.Clients
+namespace DOcean.API.Clients.RestSharp
 {
     public class ActionsClient : IActionsClient
     {
@@ -20,21 +21,21 @@ namespace DOcean.API.Clients
         /// <summary>
         /// Retrieve all actions that have been executed on the current account.
         /// </summary>
-        public Task<IReadOnlyList<Action>> GetAll()
+        public Task<IReadOnlyList<Action>> GetAll(CancellationToken token = default(CancellationToken))
         {
-            return _connection.GetPaginated<Action>("actions", null, "actions");
+            return _connection.GetPaginated<Action>("actions", null, "actions", token);
         }
 
         /// <summary>
         /// Retrieve an existing Action
         /// </summary>
-        public Task<Action> Get(int actionId)
+        public Task<Action> Get(int actionId, CancellationToken token = default(CancellationToken))
         {
             var parameters = new List<Parameter>
             {
                 new Parameter {Name = "id", Value = actionId, Type = ParameterType.UrlSegment}
             };
-            return _connection.ExecuteRequest<Action>("actions/{id}", parameters, null, "action");
+            return _connection.ExecuteRequest<Action>("actions/{id}", parameters, null, "action", token: token);
         }
 
         #endregion
