@@ -1,7 +1,9 @@
 ﻿using Newtonsoft.Json;
 
-namespace DigitalOcean.API.Models.Requests {
-    public class DomainRecord {
+namespace DigitalOcean.API.Models.Requests
+{
+    public class DomainRecord
+    {
         /// <summary>
         /// The record type (A, MX, CNAME, etc).
         /// </summary>

@@ -1,14 +1,17 @@
 ﻿using Newtonsoft.Json;
 
-namespace DigitalOcean.API.Models.Requests {
-    public enum ImageType {
+namespace DigitalOcean.API.Models.Requests
+{
+    public enum ImageType
+    {
         All,
         Application,
         Distribution,
         Private
     }
 
-    public class Image {
+    public class Image
+    {
         /// <summary>
         /// The new name that you would like to use for the image.
         /// </summary>

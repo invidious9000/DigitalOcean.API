@@ -3,13 +3,17 @@ using Newtonsoft.Json;
 using RestSharp.Serializers;
 using JsonSerializer = Newtonsoft.Json.JsonSerializer;
 
-namespace DigitalOcean.API.Helpers {
-    internal class JsonNetSerializer : ISerializer {
+namespace DigitalOcean.API.Helpers
+{
+    internal class JsonNetSerializer : ISerializer
+    {
         private readonly JsonSerializer _serializer;
 
-        public JsonNetSerializer() {
+        public JsonNetSerializer()
+        {
             ContentType = "application/json";
-            _serializer = new JsonSerializer {
+            _serializer = new JsonSerializer
+            {
                 MissingMemberHandling = MissingMemberHandling.Ignore,
                 NullValueHandling = NullValueHandling.Include,
                 DefaultValueHandling = DefaultValueHandling.Include
@@ -18,9 +22,12 @@ namespace DigitalOcean.API.Helpers {
 
         #region ISerializer Members
 
-        public string Serialize(object obj) {
-            using (var stringWriter = new StringWriter()) {
-                using (var jsonTextWriter = new JsonTextWriter(stringWriter)) {
+        public string Serialize(object obj)
+        {
+            using (var stringWriter = new StringWriter())
+            {
+                using (var jsonTextWriter = new JsonTextWriter(stringWriter))
+                {
                     jsonTextWriter.Formatting = Formatting.Indented;
                     jsonTextWriter.QuoteChar = '"';
                     _serializer.Serialize(jsonTextWriter, obj);

@@ -1,7 +1,9 @@
 ﻿using Newtonsoft.Json;
 
-namespace DigitalOcean.API.Models.Requests {
-    public class Key {
+namespace DigitalOcean.API.Models.Requests
+{
+    public class Key
+    {
         /// <summary>
         /// The name to give the new SSH key in your account.
         /// </summary>

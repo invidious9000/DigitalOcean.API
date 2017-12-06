@@ -2,8 +2,10 @@
 using System.Threading.Tasks;
 using DigitalOcean.API.Models.Responses;
 
-namespace DigitalOcean.API.Clients {
-    public interface IDropletsClient {
+namespace DigitalOcean.API.Clients
+{
+    public interface IDropletsClient
+    {
         /// <summary>
         /// Retrieve all Droplets in your account.
         /// </summary>

@@ -2,7 +2,7 @@
 
 namespace DigitalOcean.API.Models.Requests
 {
-   public class FloatingIp
+    public class FloatingIp
     {
         /// <summary>
         /// The ID of Droplet that the Floating IP will be assigned to. (Assignment)

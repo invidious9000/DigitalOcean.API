@@ -6,11 +6,14 @@ using DigitalOcean.API.Models.Requests;
 using RestSharp;
 using Image = DigitalOcean.API.Models.Responses.Image;
 
-namespace DigitalOcean.API.Clients {
-    public class ImagesClient : IImagesClient {
+namespace DigitalOcean.API.Clients
+{
+    public class ImagesClient : IImagesClient
+    {
         private readonly IConnection _connection;
 
-        public ImagesClient(IConnection connection) {
+        public ImagesClient(IConnection connection)
+        {
             _connection = connection;
         }
 
@@ -19,7 +22,8 @@ namespace DigitalOcean.API.Clients {
         /// <summary>
         /// Retrieve all images available on your account.
         /// </summary>
-        public Task<IReadOnlyList<Image>> GetAll(ImageType type = ImageType.All) {
+        public Task<IReadOnlyList<Image>> GetAll(ImageType type = ImageType.All)
+        {
             var endpoint = "images";
             switch (type)
             {
@@ -46,9 +50,11 @@ namespace DigitalOcean.API.Clients {
         /// <remarks>
         /// You can only retrieve information about public images when using a slug.
         /// </remarks>
-        public Task<Image> Get(object imageIdOrSlug) {
-            var parameters = new List<Parameter> {
-                new Parameter { Name = "id", Value = imageIdOrSlug, Type = ParameterType.UrlSegment }
+        public Task<Image> Get(object imageIdOrSlug)
+        {
+            var parameters = new List<Parameter>
+            {
+                new Parameter {Name = "id", Value = imageIdOrSlug, Type = ParameterType.UrlSegment}
             };
             return _connection.ExecuteRequest<Image>("images/{id}", parameters, null, "image");
         }
@@ -56,9 +62,11 @@ namespace DigitalOcean.API.Clients {
         /// <summary>
         /// Delete an existing image
         /// </summary>
-        public Task Delete(int imageId) {
-            var parameters = new List<Parameter> {
-                new Parameter { Name = "id", Value = imageId, Type = ParameterType.UrlSegment }
+        public Task Delete(int imageId)
+        {
+            var parameters = new List<Parameter>
+            {
+                new Parameter {Name = "id", Value = imageId, Type = ParameterType.UrlSegment}
             };
             return _connection.ExecuteRaw("images/{id}", parameters, null, Method.DELETE);
         }
@@ -66,9 +74,11 @@ namespace DigitalOcean.API.Clients {
         /// <summary>
         /// Update an existing image
         /// </summary>
-        public Task<Image> Update(int imageId, Models.Requests.Image image) {
-            var parameters = new List<Parameter> {
-                new Parameter { Name = "id", Value = imageId, Type = ParameterType.UrlSegment }
+        public Task<Image> Update(int imageId, Models.Requests.Image image)
+        {
+            var parameters = new List<Parameter>
+            {
+                new Parameter {Name = "id", Value = imageId, Type = ParameterType.UrlSegment}
             };
             return _connection.ExecuteRequest<Image>("images/{id}", parameters, image, "image", Method.PUT);
         }

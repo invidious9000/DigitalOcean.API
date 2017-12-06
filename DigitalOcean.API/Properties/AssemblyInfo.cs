@@ -5,11 +5,11 @@ using System.Runtime.InteropServices;
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
 
-[assembly: AssemblyTitle("DigitalOcean.API")]
-[assembly: AssemblyDescription(".NET wrapper of the DigitalOcean API")]
+[assembly: AssemblyTitle("DOcean.API")]
+[assembly: AssemblyDescription("Forked from Thomas McNiven's .NET wrapper of the DigitalOcean API")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("Thomas McNiven")]
-[assembly: AssemblyProduct("DigitalOcean.API")]
+[assembly: AssemblyProduct("DOcean.API")]
 [assembly: AssemblyCopyright("Copyright © 2014")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
@@ -35,5 +35,5 @@ using System.Runtime.InteropServices;
 // by using the '*' as shown below:
 // [assembly: AssemblyVersion("1.0.*")]
 
-[assembly: AssemblyVersion("1.0.5")]
-[assembly: AssemblyFileVersion("1.0.5")]
+[assembly: AssemblyVersion("1.0.8")]
+[assembly: AssemblyFileVersion("1.0.8")]

@@ -1,8 +1,10 @@
 ﻿using System.Threading.Tasks;
 using DigitalOcean.API.Models.Responses;
 
-namespace DigitalOcean.API.Clients {
-    public interface IImageActionsClient {
+namespace DigitalOcean.API.Clients
+{
+    public interface IImageActionsClient
+    {
         /// <summary>
         /// Transfer an Image to another region
         /// </summary>

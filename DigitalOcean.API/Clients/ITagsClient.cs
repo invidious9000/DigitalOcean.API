@@ -2,8 +2,10 @@
 using System.Threading.Tasks;
 using DigitalOcean.API.Models.Responses;
 
-namespace DigitalOcean.API.Clients {
-    public interface ITagsClient {
+namespace DigitalOcean.API.Clients
+{
+    public interface ITagsClient
+    {
         /// <summary>
         /// Retrieve all Tags in your account
         /// </summary>

@@ -1,7 +1,9 @@
 ﻿using System.Collections.Generic;
 
-namespace DigitalOcean.API.Models.Responses {
-    public class Size {
+namespace DigitalOcean.API.Models.Responses
+{
+    public class Size
+    {
         /// <summary>
         /// A human-readable string that is used to uniquely identify each size.
         /// </summary>

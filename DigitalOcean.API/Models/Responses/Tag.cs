@@ -4,8 +4,10 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace DigitalOcean.API.Models.Responses {
-    public class Tag {
+namespace DigitalOcean.API.Models.Responses
+{
+    public class Tag
+    {
         /// <summary>
         /// The name of the tag. The supported characters for names include alphanumeric characters, dashes, and underscores.
         /// </summary>
@@ -16,13 +18,15 @@ namespace DigitalOcean.API.Models.Responses {
         /// </summary>
         public Resource Resources { get; set; }
 
-        public class Resource {
+        public class Resource
+        {
             /// <summary>
             /// An embedded object containing key value pairs indicating count of tagged droplets and last tagged droplet
             /// </summary>
             public TaggedDroplets Droplets { get; set; }
 
-            public class TaggedDroplets {
+            public class TaggedDroplets
+            {
                 /// <summary>
                 /// A count of droplets tagged with this tag
                 /// </summary>

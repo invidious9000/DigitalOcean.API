@@ -7,7 +7,7 @@
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>DigitalOcean.API.Tests</RootNamespace>
-    <AssemblyName>DigitalOcean.API.Tests</AssemblyName>
+    <AssemblyName>DOcean.API.Tests</AssemblyName>
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <ProjectTypeGuids>{3AC096D0-A1C2-E12C-1390-A8335801FDAB};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
@@ -78,9 +78,9 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\DigitalOcean.API\DigitalOcean.API-invidious9000.csproj">
+    <ProjectReference Include="..\DigitalOcean.API\DOcean.API.csproj">
       <Project>{501971b1-c59f-4583-a4e3-2109c67b644c}</Project>
-      <Name>DigitalOcean.API-invidious9000</Name>
+      <Name>DOcean.API</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup />

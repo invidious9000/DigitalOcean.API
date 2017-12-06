@@ -1,8 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
 
-namespace DigitalOcean.API.Models.Responses {
-    public class Droplet {
+namespace DigitalOcean.API.Models.Responses
+{
+    public class Droplet
+    {
         /// <summary>
         /// A unique identifier for each Droplet instance.
         /// </summary>

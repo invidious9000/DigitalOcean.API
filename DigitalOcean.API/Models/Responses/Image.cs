@@ -1,8 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
 
-namespace DigitalOcean.API.Models.Responses {
-    public class Image {
+namespace DigitalOcean.API.Models.Responses
+{
+    public class Image
+    {
         /// <summary>
         /// A unique number that can be used to identify and reference a specific image.
         /// </summary>

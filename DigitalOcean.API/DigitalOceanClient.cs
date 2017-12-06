@@ -2,13 +2,17 @@
 using DigitalOcean.API.Http;
 using RestSharp;
 
-namespace DigitalOcean.API {
-    public class DigitalOceanClient : IDigitalOceanClient {
+namespace DigitalOcean.API
+{
+    public class DigitalOceanClient : IDigitalOceanClient
+    {
         public static readonly string DigitalOceanApiUrl = "https://api.digitalocean.com/v2/";
         private readonly IConnection _connection;
 
-        public DigitalOceanClient(string token) {
-            var client = new RestClient(DigitalOceanApiUrl) {
+        public DigitalOceanClient(string token)
+        {
+            var client = new RestClient(DigitalOceanApiUrl)
+            {
                 UserAgent = "digitalocean-api-dotnet"
             };
             client.AddDefaultHeader("Authorization", $"Bearer {token}");
@@ -21,6 +25,7 @@ namespace DigitalOcean.API {
             DropletActions = new DropletActionsClient(_connection);
             Droplets = new DropletsClient(_connection);
             FloatingIps = new FloatingIpsClient(_connection);
+            FloatingIpActions = new FloatingIpActionsClient(_connection);
             ImageActions = new ImageActionsClient(_connection);
             Images = new ImagesClient(_connection);
             Keys = new KeysClient(_connection);
@@ -39,6 +44,7 @@ namespace DigitalOcean.API {
         public IDropletActionsClient DropletActions { get; }
         public IDropletsClient Droplets { get; }
         public IFloatingIpsClient FloatingIps { get; }
+        public IFloatingIpActionsClient FloatingIpActions { get; }
         public IImageActionsClient ImageActions { get; }
         public IImagesClient Images { get; }
         public IKeysClient Keys { get; }

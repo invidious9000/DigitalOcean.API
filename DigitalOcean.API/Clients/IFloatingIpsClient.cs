@@ -6,7 +6,6 @@ namespace DigitalOcean.API.Clients
 {
     public interface IFloatingIpsClient
     {
-
         /// <summary>
         /// Retrieve all Floating IPs in your account
         /// </summary>

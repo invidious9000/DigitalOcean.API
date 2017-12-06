@@ -1,5 +1,7 @@
-﻿namespace DigitalOcean.API.Models.Responses {
-    public class DomainRecord {
+﻿namespace DigitalOcean.API.Models.Responses
+{
+    public class DomainRecord
+    {
         /// <summary>
         /// The unique id for the individual record.
         /// </summary>

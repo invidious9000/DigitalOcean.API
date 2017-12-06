@@ -1,5 +1,7 @@
-﻿namespace DigitalOcean.API.Models.Responses {
-    public class Domain {
+﻿namespace DigitalOcean.API.Models.Responses
+{
+    public class Domain
+    {
         /// <summary>
         /// The name of the domain name itself. The string should be in the form of domain.TLD. For instance, example.com is a
         /// valid domain value.

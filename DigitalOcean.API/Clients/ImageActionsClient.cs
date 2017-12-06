@@ -5,11 +5,14 @@ using DigitalOcean.API.Http;
 using RestSharp;
 using Action = DigitalOcean.API.Models.Responses.Action;
 
-namespace DigitalOcean.API.Clients {
-    public class ImageActionsClient : IImageActionsClient {
+namespace DigitalOcean.API.Clients
+{
+    public class ImageActionsClient : IImageActionsClient
+    {
         private readonly IConnection _connection;
 
-        public ImageActionsClient(IConnection connection) {
+        public ImageActionsClient(IConnection connection)
+        {
             _connection = connection;
         }
 
@@ -18,12 +21,15 @@ namespace DigitalOcean.API.Clients {
         /// <summary>
         /// Transfer an Image to another region
         /// </summary>
-        public Task<Action> Transfer(int imageId, string regionSlug) {
-            var parameters = new List<Parameter> {
-                new Parameter { Name = "imageId", Value = imageId, Type = ParameterType.UrlSegment }
+        public Task<Action> Transfer(int imageId, string regionSlug)
+        {
+            var parameters = new List<Parameter>
+            {
+                new Parameter {Name = "imageId", Value = imageId, Type = ParameterType.UrlSegment}
             };
 
-            var body = new Models.Requests.Action {
+            var body = new Models.Requests.Action
+            {
                 Type = "transfer",
                 RegionSlug = regionSlug
             };
@@ -35,12 +41,15 @@ namespace DigitalOcean.API.Clients {
         /// <summary>
         /// Retrieve an existing Image Action
         /// </summary>
-        public Task<Action> GetAction(int imageId, int actionId) {
-            var parameters = new List<Parameter> {
-                new Parameter { Name = "imageId", Value = imageId, Type = ParameterType.UrlSegment },
-                new Parameter { Name = "actionId", Value = actionId, Type = ParameterType.UrlSegment }
+        public Task<Action> GetAction(int imageId, int actionId)
+        {
+            var parameters = new List<Parameter>
+            {
+                new Parameter {Name = "imageId", Value = imageId, Type = ParameterType.UrlSegment},
+                new Parameter {Name = "actionId", Value = actionId, Type = ParameterType.UrlSegment}
             };
-            return _connection.ExecuteRequest<Action>("images/{imageId}/actions/{actionId}", parameters, null, "action");
+            return _connection.ExecuteRequest<Action>("images/{imageId}/actions/{actionId}", parameters, null,
+                "action");
         }
 
         #endregion

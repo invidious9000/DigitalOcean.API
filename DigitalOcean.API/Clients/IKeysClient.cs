@@ -2,8 +2,10 @@
 using System.Threading.Tasks;
 using DigitalOcean.API.Models.Responses;
 
-namespace DigitalOcean.API.Clients {
-    public interface IKeysClient {
+namespace DigitalOcean.API.Clients
+{
+    public interface IKeysClient
+    {
         /// <summary>
         /// Retrieve all keys in your account
         /// </summary>

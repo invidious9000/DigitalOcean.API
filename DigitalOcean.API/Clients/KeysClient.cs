@@ -4,11 +4,14 @@ using DigitalOcean.API.Http;
 using DigitalOcean.API.Models.Responses;
 using RestSharp;
 
-namespace DigitalOcean.API.Clients {
-    public class KeysClient : IKeysClient {
+namespace DigitalOcean.API.Clients
+{
+    public class KeysClient : IKeysClient
+    {
         private readonly IConnection _connection;
 
-        public KeysClient(IConnection connection) {
+        public KeysClient(IConnection connection)
+        {
             _connection = connection;
         }
 
@@ -17,23 +20,27 @@ namespace DigitalOcean.API.Clients {
         /// <summary>
         /// Retrieve all keys in your account
         /// </summary>
-        public Task<IReadOnlyList<Key>> GetAll() {
+        public Task<IReadOnlyList<Key>> GetAll()
+        {
             return _connection.GetPaginated<Key>("account/keys", null, "ssh_keys");
         }
 
         /// <summary>
         /// Create a new key entry
         /// </summary>
-        public Task<Key> Create(Models.Requests.Key key) {
+        public Task<Key> Create(Models.Requests.Key key)
+        {
             return _connection.ExecuteRequest<Key>("account/keys", null, key, "ssh_key", Method.POST);
         }
 
         /// <summary>
         /// Retrieve an existing key in your account
         /// </summary>
-        public Task<Key> Get(object keyIdOrFingerprint) {
-            var parameters = new List<Parameter> {
-                new Parameter { Name = "id", Value = keyIdOrFingerprint, Type = ParameterType.UrlSegment }
+        public Task<Key> Get(object keyIdOrFingerprint)
+        {
+            var parameters = new List<Parameter>
+            {
+                new Parameter {Name = "id", Value = keyIdOrFingerprint, Type = ParameterType.UrlSegment}
             };
             return _connection.ExecuteRequest<Key>("account/keys/{id}", parameters, null, "ssh_key");
         }
@@ -41,9 +48,11 @@ namespace DigitalOcean.API.Clients {
         /// <summary>
         /// Update an existing key in your account
         /// </summary>
-        public Task<Key> Update(object keyIdOrFingerprint, Models.Requests.Key key) {
-            var parameters = new List<Parameter> {
-                new Parameter { Name = "id", Value = keyIdOrFingerprint, Type = ParameterType.UrlSegment }
+        public Task<Key> Update(object keyIdOrFingerprint, Models.Requests.Key key)
+        {
+            var parameters = new List<Parameter>
+            {
+                new Parameter {Name = "id", Value = keyIdOrFingerprint, Type = ParameterType.UrlSegment}
             };
             return _connection.ExecuteRequest<Key>("account/keys/{id}", parameters, key, "ssh_key", Method.PUT);
         }
@@ -51,9 +60,11 @@ namespace DigitalOcean.API.Clients {
         /// <summary>
         /// Delete an existing key in your account
         /// </summary>
-        public Task Delete(object keyIdOrFingerprint) {
-            var parameters = new List<Parameter> {
-                new Parameter { Name = "id", Value = keyIdOrFingerprint, Type = ParameterType.UrlSegment }
+        public Task Delete(object keyIdOrFingerprint)
+        {
+            var parameters = new List<Parameter>
+            {
+                new Parameter {Name = "id", Value = keyIdOrFingerprint, Type = ParameterType.UrlSegment}
             };
             return _connection.ExecuteRaw("account/keys/{id}", parameters, null, Method.DELETE);
         }

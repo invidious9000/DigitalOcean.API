@@ -1,7 +1,9 @@
 ﻿using System.Collections.Generic;
 
-namespace DigitalOcean.API.Models.Responses {
-    public class Region {
+namespace DigitalOcean.API.Models.Responses
+{
+    public class Region
+    {
         /// <summary>
         /// A human-readable string that is used as a unique identifier for each region.
         /// </summary>

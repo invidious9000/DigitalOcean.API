@@ -1,8 +1,10 @@
 ﻿using System.Collections.Generic;
 using Newtonsoft.Json;
 
-namespace DigitalOcean.API.Models.Requests {
-    public class Droplet {
+namespace DigitalOcean.API.Models.Requests
+{
+    public class Droplet
+    {
         /// <summary>
         /// The human-readable string you wish to use when displaying the Droplet name. The name, if set to a domain name managed
         /// in the DigitalOcean DNS management system, will configure a PTR record for the Droplet. The name set during creation
@@ -56,7 +58,7 @@ namespace DigitalOcean.API.Models.Requests {
         /// </summary>
         [JsonProperty("private_networking")]
         public bool PrivateNetworking { get; set; }
-        
+
         /// <summary>
         /// A string containing a YAML formatted Cloud-Init script
         /// </summary>

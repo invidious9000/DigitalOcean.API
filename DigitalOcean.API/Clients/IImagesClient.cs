@@ -3,8 +3,10 @@ using System.Threading.Tasks;
 using DigitalOcean.API.Models.Requests;
 using Image = DigitalOcean.API.Models.Responses.Image;
 
-namespace DigitalOcean.API.Clients {
-    public interface IImagesClient {
+namespace DigitalOcean.API.Clients
+{
+    public interface IImagesClient
+    {
         /// <summary>
         /// Retrieve all images available ony your account.
         /// </summary>

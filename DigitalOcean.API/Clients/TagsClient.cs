@@ -4,11 +4,14 @@ using DigitalOcean.API.Http;
 using DigitalOcean.API.Models.Responses;
 using RestSharp;
 
-namespace DigitalOcean.API.Clients {
-    public class TagsClient : ITagsClient {
+namespace DigitalOcean.API.Clients
+{
+    public class TagsClient : ITagsClient
+    {
         private readonly IConnection _connection;
 
-        public TagsClient(IConnection connection) {
+        public TagsClient(IConnection connection)
+        {
             _connection = connection;
         }
 
@@ -17,16 +20,19 @@ namespace DigitalOcean.API.Clients {
         /// <summary>
         /// Retrieve all Tags in your account
         /// </summary>
-        public Task<IReadOnlyList<Tag>> GetAll() {
+        public Task<IReadOnlyList<Tag>> GetAll()
+        {
             return _connection.GetPaginated<Tag>("tags", null, "tags");
         }
 
         /// <summary>
         /// Retrieve an individual Tag by name
         /// </summary>
-        public Task<Tag> Get(string tagName) {
-            var parameters = new List<Parameter> {
-                new Parameter { Name = "name", Value = tagName, Type = ParameterType.UrlSegment }
+        public Task<Tag> Get(string tagName)
+        {
+            var parameters = new List<Parameter>
+            {
+                new Parameter {Name = "name", Value = tagName, Type = ParameterType.UrlSegment}
             };
             return _connection.ExecuteRequest<Tag>("tags/{name}", parameters, null, "tag");
         }
@@ -34,8 +40,10 @@ namespace DigitalOcean.API.Clients {
         /// <summary>
         /// Create a new Tag
         /// </summary>
-        public Task<Tag> Create(string tagName) {
-            var data = new Models.Requests.Tag {
+        public Task<Tag> Create(string tagName)
+        {
+            var data = new Models.Requests.Tag
+            {
                 Name = tagName
             };
 
@@ -45,20 +53,23 @@ namespace DigitalOcean.API.Clients {
         /// <summary>
         /// Tag existing resources of given resource id / type combination
         /// </summary>
-        public Task Tag(string tagName, List<KeyValuePair<string, string>> resources) {
-            var data = new Models.Requests.TagResource {
+        public Task Tag(string tagName, List<KeyValuePair<string, string>> resources)
+        {
+            var data = new Models.Requests.TagResource
+            {
                 Resources = new List<Models.Requests.TagResource.Resource>()
             };
-           
-            foreach (KeyValuePair<string, string> resource in resources) {
-                data.Resources.Add(new Models.Requests.TagResource.Resource {
+
+            foreach (var resource in resources)
+                data.Resources.Add(new Models.Requests.TagResource.Resource
+                {
                     Id = resource.Key,
                     Type = resource.Value
                 });
-            }
 
-            var parameters = new List<Parameter> {
-                new Parameter { Name = "name", Value = tagName, Type = ParameterType.UrlSegment }
+            var parameters = new List<Parameter>
+            {
+                new Parameter {Name = "name", Value = tagName, Type = ParameterType.UrlSegment}
             };
 
             return _connection.ExecuteRaw("tags/{name}/resources", parameters, data, Method.POST);
@@ -67,20 +78,23 @@ namespace DigitalOcean.API.Clients {
         /// <summary>
         /// Untag existing resources of given resource id / type combination
         /// </summary>
-        public Task Untag(string tagName, List<KeyValuePair<string, string>> resources) {
-            var data = new Models.Requests.TagResource {
+        public Task Untag(string tagName, List<KeyValuePair<string, string>> resources)
+        {
+            var data = new Models.Requests.TagResource
+            {
                 Resources = new List<Models.Requests.TagResource.Resource>()
             };
 
-            foreach (KeyValuePair<string, string> resource in resources) {
-                data.Resources.Add(new Models.Requests.TagResource.Resource {
+            foreach (var resource in resources)
+                data.Resources.Add(new Models.Requests.TagResource.Resource
+                {
                     Id = resource.Key,
                     Type = resource.Value
                 });
-            }
 
-            var parameters = new List<Parameter> {
-                new Parameter { Name = "name", Value = tagName, Type = ParameterType.UrlSegment }
+            var parameters = new List<Parameter>
+            {
+                new Parameter {Name = "name", Value = tagName, Type = ParameterType.UrlSegment}
             };
 
             return _connection.ExecuteRaw("tags/{name}/resources", parameters, data, Method.DELETE);
@@ -89,9 +103,11 @@ namespace DigitalOcean.API.Clients {
         /// <summary>
         /// Delete an existing Tag
         /// </summary>
-        public Task Delete(string tagName) {
-            var parameters = new List<Parameter> {
-                new Parameter { Name = "name", Value = tagName, Type = ParameterType.UrlSegment }
+        public Task Delete(string tagName)
+        {
+            var parameters = new List<Parameter>
+            {
+                new Parameter {Name = "name", Value = tagName, Type = ParameterType.UrlSegment}
             };
             return _connection.ExecuteRaw("tags/{name}", parameters, null, Method.DELETE);
         }

@@ -2,8 +2,10 @@
 using System.Threading.Tasks;
 using DigitalOcean.API.Models.Responses;
 
-namespace DigitalOcean.API.Clients {
-    public interface IDomainsClient {
+namespace DigitalOcean.API.Clients
+{
+    public interface IDomainsClient
+    {
         /// <summary>
         /// Retrieve a list of all domains in your account
         /// </summary>

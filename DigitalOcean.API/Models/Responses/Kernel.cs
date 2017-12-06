@@ -1,5 +1,7 @@
-﻿namespace DigitalOcean.API.Models.Responses {
-    public class Kernel {
+﻿namespace DigitalOcean.API.Models.Responses
+{
+    public class Kernel
+    {
         /// <summary>
         /// A unique number used to identify and reference a specific kernel.
         /// </summary>

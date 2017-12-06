@@ -1,8 +1,10 @@
 ﻿using System.Threading.Tasks;
 using DigitalOcean.API.Models.Responses;
 
-namespace DigitalOcean.API.Clients {
-    public interface IDropletActionsClient {
+namespace DigitalOcean.API.Clients
+{
+    public interface IDropletActionsClient
+    {
         /// <summary>
         /// Reboot a droplet
         /// </summary>

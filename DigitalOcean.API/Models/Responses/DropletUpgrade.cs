@@ -1,7 +1,9 @@
 ﻿using System;
 
-namespace DigitalOcean.API.Models.Responses {
-    public class DropletUpgrade {
+namespace DigitalOcean.API.Models.Responses
+{
+    public class DropletUpgrade
+    {
         /// <summary>
         /// The affected droplet's ID
         /// </summary>
@@ -18,4 +20,3 @@ namespace DigitalOcean.API.Models.Responses {
         public string Url { get; set; }
     }
 }
-
