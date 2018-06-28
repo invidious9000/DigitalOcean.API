@@ -8,9 +8,9 @@ namespace DOcean.API.Http
     {
         public RateLimit(IList<Parameter> headers)
         {
-            Limit = GetHeaderValue(headers, "RateLimit-Limit");
-            Remaining = GetHeaderValue(headers, "RateLimit-Remaining");
-            Reset = GetHeaderValue(headers, "RateLimit-Reset");
+            Limit = GetHeaderValue(headers, "ratelimit-limit");
+            Remaining = GetHeaderValue(headers, "ratelimit-remaining");
+            Reset = GetHeaderValue(headers, "ratelimit-reset");
         }
 
         #region IRateLimit Members
