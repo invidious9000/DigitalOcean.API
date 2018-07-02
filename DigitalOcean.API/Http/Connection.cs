@@ -22,8 +22,8 @@ namespace DOcean.API.Http
         public IRestClient Client { get; }
         public IRateLimit Rates { get; private set; }
 
-        public async Task<IRestResponse> ExecuteRaw(string endpoint, IList<Parameter> parameters,
-            object data = null, Method method = Method.GET, CancellationToken token = default(CancellationToken))
+        public async Task<IRestResponse> ExecuteRaw(string endpoint, IEnumerable<Parameter> parameters,
+            object data = null, Method method = Method.GET, CancellationToken token = default)
         {
             var request = BuildRequest(endpoint, parameters);
             request.Method = method;
@@ -38,8 +38,9 @@ namespace DOcean.API.Http
             return await Client.ExecuteTaskRaw(request, token).ConfigureAwait(false);
         }
 
-        public async Task<T> ExecuteRequest<T>(string endpoint, IList<Parameter> parameters,
-            object data = null, string expectedRoot = null, Method method = Method.GET, CancellationToken token = default(CancellationToken))
+        public async Task<T> ExecuteRequest<T>(string endpoint, IEnumerable<Parameter> parameters,
+            object data = null, string expectedRoot = null, Method method = Method.GET,
+            CancellationToken token = default)
             where T : new()
         {
             var request = BuildRequest(endpoint, parameters);
@@ -56,8 +57,8 @@ namespace DOcean.API.Http
             return await Client.ExecuteTask<T>(request, token).ConfigureAwait(false);
         }
 
-        public async Task<IReadOnlyList<T>> GetPaginated<T>(string endpoint, IList<Parameter> parameters,
-            string expectedRoot = null, CancellationToken token = default(CancellationToken)) where T : new()
+        public async Task<IReadOnlyList<T>> GetPaginated<T>(string endpoint, IEnumerable<Parameter> parameters,
+            string expectedRoot = null, CancellationToken token = default) where T : new()
         {
             var first = await ExecuteRaw(endpoint, parameters, token: token).ConfigureAwait(false);
 
@@ -86,6 +87,7 @@ namespace DOcean.API.Http
                 deserialize.RootElement = "links";
                 page = deserialize.Deserialize<Pagination>(iter);
             }
+
             return new ReadOnlyCollection<T>(allItems);
         }
 

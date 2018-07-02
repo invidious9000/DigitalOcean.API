@@ -18,10 +18,11 @@ namespace DOcean.API.Clients.RestSharp
 
         #region IDomainRecordsClient Members
 
+        /// <inheritdoc />
         /// <summary>
         /// Retrieve all records configured for a domain
         /// </summary>
-        public Task<IReadOnlyList<DomainRecord>> GetAll(string domainName, CancellationToken token = default(CancellationToken))
+        public Task<IReadOnlyList<DomainRecord>> GetAll(string domainName, CancellationToken token = default)
         {
             // docs don't say this is paginated? but it could be so run it thru that anyway
             var parameters = new List<Parameter>
@@ -31,10 +32,11 @@ namespace DOcean.API.Clients.RestSharp
             return _connection.GetPaginated<DomainRecord>("domains/{name}/records", parameters, "domain_records", token);
         }
 
+        /// <inheritdoc />
         /// <summary>
         /// Create a new record for a domain.
         /// </summary>
-        public Task<DomainRecord> Create(string domainName, Models.Requests.DomainRecord record, CancellationToken token = default(CancellationToken))
+        public Task<DomainRecord> Create(string domainName, Models.Requests.DomainRecord record, CancellationToken token = default)
         {
             var parameters = new List<Parameter>
             {
@@ -44,10 +46,11 @@ namespace DOcean.API.Clients.RestSharp
                 "domain_record", Method.POST, token);
         }
 
+        /// <inheritdoc />
         /// <summary>
         /// Retrieve a specific domain record
         /// </summary>
-        public Task<DomainRecord> Get(string domainName, int recordId, CancellationToken token = default(CancellationToken))
+        public Task<DomainRecord> Get(string domainName, int recordId, CancellationToken token = default)
         {
             var parameters = new List<Parameter>
             {
@@ -58,10 +61,11 @@ namespace DOcean.API.Clients.RestSharp
                 "domain_record", token: token);
         }
 
+        /// <inheritdoc />
         /// <summary>
         /// Delete a record for a domain
         /// </summary>
-        public Task Delete(string domainName, int recordId, CancellationToken token = default(CancellationToken))
+        public Task Delete(string domainName, int recordId, CancellationToken token = default)
         {
             var parameters = new List<Parameter>
             {
@@ -71,10 +75,11 @@ namespace DOcean.API.Clients.RestSharp
             return _connection.ExecuteRaw("domains/{name}/records/{id}", parameters, null, Method.DELETE, token);
         }
 
+        /// <inheritdoc />
         /// <summary>
         /// Update an existing record for a domain
         /// </summary>
-        public Task<DomainRecord> Update(string domainName, int recordId, Models.Requests.DomainRecord newRecord, CancellationToken token = default(CancellationToken))
+        public Task<DomainRecord> Update(string domainName, int recordId, Models.Requests.DomainRecord newRecord, CancellationToken token = default)
         {
             var parameters = new List<Parameter>
             {

@@ -17,7 +17,7 @@ namespace DOcean.API.Clients.RestSharp
             _connection = connection;
         }
 
-        public Task<FloatingIpAction> Assign(string ipAddress, int dropletId, CancellationToken token = default(CancellationToken))
+        public Task<FloatingIpAction> Assign(string ipAddress, int dropletId, CancellationToken token = default)
         {
             var fip = new Models.Requests.FloatingIpAction
             {
@@ -32,7 +32,7 @@ namespace DOcean.API.Clients.RestSharp
 
         }
 
-        public Task<FloatingIpAction> Unassign(string ipAddress, CancellationToken token = default(CancellationToken))
+        public Task<FloatingIpAction> Unassign(string ipAddress, CancellationToken token = default)
         {
             var fip = new Models.Requests.FloatingIpAction
             {
@@ -45,7 +45,7 @@ namespace DOcean.API.Clients.RestSharp
             return _connection.ExecuteRequest<FloatingIpAction>("floating_ips/{ip}/actions", parameters, fip, "action", Method.POST, token);
         }
 
-        public Task<IReadOnlyList<FloatingIpAction>> GetAll(string ipAddress, CancellationToken token = default(CancellationToken))
+        public Task<IReadOnlyList<FloatingIpAction>> GetAll(string ipAddress, CancellationToken token = default)
         {
             var parameters = new List<Parameter>
             {
@@ -54,7 +54,7 @@ namespace DOcean.API.Clients.RestSharp
             return _connection.GetPaginated<FloatingIpAction>("floating_ips/{ip}/actions", parameters, "actions", token);
         }
 
-        public Task<FloatingIpAction> GetFloatingIpAction(string ipAddress, int actionId, CancellationToken token = default(CancellationToken))
+        public Task<FloatingIpAction> GetFloatingIpAction(string ipAddress, int actionId, CancellationToken token = default)
         {
             var parameters = new List<Parameter>
             {

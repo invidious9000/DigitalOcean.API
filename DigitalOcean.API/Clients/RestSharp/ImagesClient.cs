@@ -20,10 +20,11 @@ namespace DOcean.API.Clients.RestSharp
 
         #region IImagesClient Members
 
+        /// <inheritdoc />
         /// <summary>
         /// Retrieve all images available on your account.
         /// </summary>
-        public Task<IReadOnlyList<Image>> GetAll(ImageType type = ImageType.All, CancellationToken token = default(CancellationToken))
+        public Task<IReadOnlyList<Image>> GetAll(ImageType type = ImageType.All, CancellationToken token = default)
         {
             var endpoint = "images";
             switch (type)
@@ -45,13 +46,14 @@ namespace DOcean.API.Clients.RestSharp
             return _connection.GetPaginated<Image>(endpoint, null, "images", token);
         }
 
+        /// <inheritdoc />
         /// <summary>
         /// Retrieve information about a public or private image on your account.
         /// </summary>
         /// <remarks>
         /// You can only retrieve information about public images when using a slug.
         /// </remarks>
-        public Task<Image> Get(object imageIdOrSlug, CancellationToken token = default(CancellationToken))
+        public Task<Image> Get(object imageIdOrSlug, CancellationToken token = default)
         {
             var parameters = new List<Parameter>
             {
@@ -60,10 +62,11 @@ namespace DOcean.API.Clients.RestSharp
             return _connection.ExecuteRequest<Image>("images/{id}", parameters, null, "image", token: token);
         }
 
+        /// <inheritdoc />
         /// <summary>
         /// Delete an existing image
         /// </summary>
-        public Task Delete(int imageId, CancellationToken token = default(CancellationToken))
+        public Task Delete(int imageId, CancellationToken token = default)
         {
             var parameters = new List<Parameter>
             {
@@ -72,10 +75,11 @@ namespace DOcean.API.Clients.RestSharp
             return _connection.ExecuteRaw("images/{id}", parameters, null, Method.DELETE, token);
         }
 
+        /// <inheritdoc />
         /// <summary>
         /// Update an existing image
         /// </summary>
-        public Task<Image> Update(int imageId, Models.Requests.Image image, CancellationToken token = default(CancellationToken))
+        public Task<Image> Update(int imageId, Models.Requests.Image image, CancellationToken token = default)
         {
             var parameters = new List<Parameter>
             {

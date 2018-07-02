@@ -8,7 +8,8 @@ namespace DOcean.API.Helpers
 {
     public static class DropletUtils
     {
-        public static async Task<Droplet> AwaitStatus(IDropletsClient client, int dropletId, string status, TimeSpan? timeout = null, CancellationToken token = default(CancellationToken))
+        public static async Task<Droplet> AwaitStatus(IDropletsClient client, int dropletId, string status,
+            TimeSpan? timeout = null, CancellationToken token = default)
         {
             if (timeout == null)
             {
@@ -18,7 +19,8 @@ namespace DOcean.API.Helpers
             Droplet droplet;
             var startTime = DateTime.Now;
 
-            while (!string.Equals((droplet = await client.Get(dropletId, token)).Status, status, StringComparison.InvariantCultureIgnoreCase) && !token.IsCancellationRequested)
+            while (!string.Equals((droplet = await client.Get(dropletId, token)).Status, status,
+                       StringComparison.InvariantCultureIgnoreCase) && !token.IsCancellationRequested)
             {
                 if (DateTime.Now - startTime > timeout)
                     throw new TimeoutException();
@@ -26,8 +28,7 @@ namespace DOcean.API.Helpers
                 await Task.Delay(TimeSpan.FromSeconds(1), token);
             }
 
-            if (token.IsCancellationRequested)
-                throw new TaskCanceledException();
+            token.ThrowIfCancellationRequested();
 
             return droplet;
         }

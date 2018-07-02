@@ -18,10 +18,11 @@ namespace DOcean.API.Clients.RestSharp
 
         #region IImageActionsClient Members
 
+        /// <inheritdoc />
         /// <summary>
         /// Transfer an Image to another region
         /// </summary>
-        public Task<Action> Transfer(int imageId, string regionSlug, CancellationToken token = default(CancellationToken))
+        public Task<Action> Transfer(int imageId, string regionSlug, CancellationToken token = default)
         {
             var parameters = new List<Parameter>
             {
@@ -38,10 +39,11 @@ namespace DOcean.API.Clients.RestSharp
                 Method.POST, token);
         }
 
+        /// <inheritdoc />
         /// <summary>
         /// Retrieve an existing Image Action
         /// </summary>
-        public Task<Action> GetAction(int imageId, int actionId, CancellationToken token = default(CancellationToken))
+        public Task<Action> GetAction(int imageId, int actionId, CancellationToken token = default)
         {
             var parameters = new List<Parameter>
             {

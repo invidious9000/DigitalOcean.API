@@ -10,14 +10,16 @@ namespace DOcean.API.Extensions
 {
     public static class RestSharpExtensions
     {
-        public static async Task<T> ExecuteTask<T>(this IRestClient client, IRestRequest request, CancellationToken token = default(CancellationToken))
+        public static async Task<T> ExecuteTask<T>(this IRestClient client, IRestRequest request,
+            CancellationToken token = default)
             where T : new()
         {
             var ret = await client.ExecuteTaskAsync(request, token).ConfigureAwait(false);
             return ret.ThrowIfException().Deserialize<T>();
         }
 
-        public static async Task<IRestResponse> ExecuteTaskRaw(this IRestClient client, IRestRequest request, CancellationToken token = default(CancellationToken))
+        public static async Task<IRestResponse> ExecuteTaskRaw(this IRestClient client, IRestRequest request,
+            CancellationToken token = default)
         {
             var ret = await client.ExecuteTaskAsync(request, token).ConfigureAwait(false);
             request.OnBeforeDeserialization(ret);
@@ -37,6 +39,7 @@ namespace DOcean.API.Extensions
             return response;
         }
 
+        // ReSharper disable once MemberCanBePrivate.Global
         public static T Deserialize<T>(this IRestResponse response)
         {
             response.Request.OnBeforeDeserialization(response);

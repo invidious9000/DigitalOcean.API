@@ -1,5 +1,9 @@
-﻿namespace DOcean.API.Http
+﻿using System.Diagnostics.CodeAnalysis;
+
+namespace DOcean.API.Http
 {
+    [SuppressMessage("ReSharper", "UnusedMemberInSuper.Global")]
+    [SuppressMessage("ReSharper", "UnusedMember.Global")]
     public interface IRateLimit
     {
         /// <summary>

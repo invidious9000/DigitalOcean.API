@@ -13,6 +13,7 @@ namespace DOcean.API.Exceptions
             {429, "Rate Limit Exceeded"}
         };
 
+        // ReSharper disable once MemberCanBePrivate.Global
         public HttpStatusCode StatusCode { get; }
 
         public override string Message => _errors.ContainsKey((int) StatusCode)

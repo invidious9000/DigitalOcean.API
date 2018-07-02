@@ -18,18 +18,20 @@ namespace DOcean.API.Clients.RestSharp
 
         #region IActionsClient Members
 
+        /// <inheritdoc />
         /// <summary>
         /// Retrieve all actions that have been executed on the current account.
         /// </summary>
-        public Task<IReadOnlyList<Action>> GetAll(CancellationToken token = default(CancellationToken))
+        public Task<IReadOnlyList<Action>> GetAll(CancellationToken token = default)
         {
             return _connection.GetPaginated<Action>("actions", null, "actions", token);
         }
 
+        /// <inheritdoc />
         /// <summary>
         /// Retrieve an existing Action
         /// </summary>
-        public Task<Action> Get(int actionId, CancellationToken token = default(CancellationToken))
+        public Task<Action> Get(int actionId, CancellationToken token = default)
         {
             var parameters = new List<Parameter>
             {

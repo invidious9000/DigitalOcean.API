@@ -25,15 +25,13 @@ namespace DOcean.API.Helpers
         public string Serialize(object obj)
         {
             using (var stringWriter = new StringWriter())
+            using (var jsonTextWriter = new JsonTextWriter(stringWriter))
             {
-                using (var jsonTextWriter = new JsonTextWriter(stringWriter))
-                {
-                    jsonTextWriter.Formatting = Formatting.Indented;
-                    jsonTextWriter.QuoteChar = '"';
-                    _serializer.Serialize(jsonTextWriter, obj);
-                    var result = stringWriter.ToString();
-                    return result;
-                }
+                jsonTextWriter.Formatting = Formatting.Indented;
+                jsonTextWriter.QuoteChar = '"';
+                _serializer.Serialize(jsonTextWriter, obj);
+                var result = stringWriter.ToString();
+                return result;
             }
         }
 

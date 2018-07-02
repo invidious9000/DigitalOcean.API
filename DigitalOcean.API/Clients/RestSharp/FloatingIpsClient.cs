@@ -18,12 +18,12 @@ namespace DOcean.API.Clients.RestSharp
 
         #region IFloatingIpsClient Members
 
-        public Task<IReadOnlyList<FloatingIp>> GetAll(CancellationToken token = default(CancellationToken))
+        public Task<IReadOnlyList<FloatingIp>> GetAll(CancellationToken token = default)
         {
             return _connection.GetPaginated<FloatingIp>("floating_ips", null, "floating_ips", token);
         }
 
-        public Task<FloatingIp> Get(string ipAddress, CancellationToken token = default(CancellationToken))
+        public Task<FloatingIp> Get(string ipAddress, CancellationToken token = default)
         {
             var parameters = new List<Parameter>
             {
@@ -32,19 +32,19 @@ namespace DOcean.API.Clients.RestSharp
             return _connection.ExecuteRequest<FloatingIp>("floating_ips/{ip}", parameters, null, "floating_ip", token: token);
         }
 
-        public Task<FloatingIp> AssignNew(int dropletId, CancellationToken token = default(CancellationToken))
+        public Task<FloatingIp> AssignNew(int dropletId, CancellationToken token = default)
         {
             var fip = new Models.Requests.FloatingIp { DropletId = dropletId };
             return _connection.ExecuteRequest<FloatingIp>("floating_ips", null, fip, "floating_ip", Method.POST, token);
         }
 
-        public Task<FloatingIp> Reserve(string regionSlug, CancellationToken token = default(CancellationToken))
+        public Task<FloatingIp> Reserve(string regionSlug, CancellationToken token = default)
         {
             var fip = new Models.Requests.FloatingIp { Region = regionSlug };
             return _connection.ExecuteRequest<FloatingIp>("floating_ips", null, fip, "floating_ip", Method.POST, token);
         }
 
-        public Task Delete(string ipAddress, CancellationToken token = default(CancellationToken))
+        public Task Delete(string ipAddress, CancellationToken token = default)
         {
             var parameters = new List<Parameter>
             {

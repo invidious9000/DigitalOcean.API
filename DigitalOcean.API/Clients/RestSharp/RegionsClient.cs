@@ -17,10 +17,11 @@ namespace DOcean.API.Clients.RestSharp
 
         #region IRegionsClient Members
 
+        /// <inheritdoc />
         /// <summary>
         /// Retrieve all DigitalOcean regions
         /// </summary>
-        public Task<IReadOnlyList<Region>> GetAll(CancellationToken token = default(CancellationToken))
+        public Task<IReadOnlyList<Region>> GetAll(CancellationToken token = default)
         {
             return _connection.GetPaginated<Region>("regions", null, "regions", token);
         }
