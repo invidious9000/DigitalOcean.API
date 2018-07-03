@@ -34,7 +34,7 @@ namespace DOcean.API.Extensions
 
             if (response.ResponseStatus != ResponseStatus.Completed) throw response.ResponseStatus.ToWebException();
 
-            if ((int) response.StatusCode >= 400) throw new ApiException(response.StatusCode);
+            if ((int) response.StatusCode >= 400) throw new ApiException(response.StatusCode, response.Content);
 
             return response;
         }

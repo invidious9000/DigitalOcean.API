@@ -13,16 +13,24 @@ namespace DOcean.API.Exceptions
             {429, "Rate Limit Exceeded"}
         };
 
+        private readonly string _errorResponseContent;
+
         // ReSharper disable once MemberCanBePrivate.Global
         public HttpStatusCode StatusCode { get; }
 
         public override string Message => _errors.ContainsKey((int) StatusCode)
             ? _errors[(int) StatusCode]
-            : "Unknown API error";
+            : $"Unknown API error, StatusCode: {StatusCode}, Content: {_errorResponseContent}";
 
         public ApiException(HttpStatusCode statusCode)
         {
             StatusCode = statusCode;
+        }
+
+        public ApiException(HttpStatusCode statusCode, string errorResponseContent)
+        {
+            StatusCode = statusCode;
+            _errorResponseContent = errorResponseContent;
         }
     }
 }
