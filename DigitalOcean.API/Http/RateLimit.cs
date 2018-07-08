@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 using RestSharp;
 
@@ -37,7 +38,7 @@ namespace DOcean.API.Http
 
         private static int GetHeaderValue(IEnumerable<Parameter> headers, string name)
         {
-            var header = headers.FirstOrDefault(x => x.Name == name);
+            var header = headers.FirstOrDefault(x => x.Name.Equals(name, StringComparison.InvariantCultureIgnoreCase));
             return header != null && int.TryParse(header.Value.ToString(), out var value) ? value : 0;
         }
     }
