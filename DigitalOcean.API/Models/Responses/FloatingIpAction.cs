@@ -27,12 +27,12 @@ namespace DOcean.API.Models.Responses
         /// <summary>
         /// A time value given in ISO8601 combined date and time format that represents when the action was completed.
         /// </summary>
-        public DateTime CompletedAt { get; set; }
+        public DateTime? CompletedAt { get; set; }
 
         /// <summary>
         /// A unique identifier for the resource that the action is associated with.
         /// </summary>
-        public int ResourceId { get; set; }
+        public long ResourceId { get; set; }
 
         /// <summary>
         /// The type of resource that the action is associated with.
