@@ -21,7 +21,7 @@ namespace DOcean.API.Clients.RestSharp
         {
             var fip = new Models.Requests.FloatingIpAction
             {
-                Type = "assign_ip",
+                Type = "assign",
                 DropletId = dropletId
             };
             var parameters = new List<Parameter>
