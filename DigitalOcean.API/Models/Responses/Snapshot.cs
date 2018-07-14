@@ -1,8 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics.CodeAnalysis;
 
 namespace DOcean.API.Models.Responses
 {
+    [SuppressMessage("ReSharper", "UnusedMember.Global")]
+    [SuppressMessage("ReSharper", "UnusedAutoPropertyAccessor.Global")]
     public class Snapshot
     {
         /// <summary>
@@ -44,6 +47,5 @@ namespace DOcean.API.Models.Responses
         /// The billable size of the snapshot in gigabytes.
         /// </summary>
         public int SizeGigabytes { get; set; }
-
     }
 }

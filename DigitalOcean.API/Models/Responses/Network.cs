@@ -1,7 +1,10 @@
 ﻿using System.Collections.Generic;
+using System.Diagnostics.CodeAnalysis;
 
 namespace DOcean.API.Models.Responses
 {
+    [SuppressMessage("ReSharper", "ClassNeverInstantiated.Global")]
+    [SuppressMessage("ReSharper", "UnusedMember.Global")]
     public class Interface
     {
         public string IpAddress { get; set; }
@@ -10,6 +13,9 @@ namespace DOcean.API.Models.Responses
         public string Type { get; set; }
     }
 
+    [SuppressMessage("ReSharper", "ClassNeverInstantiated.Global")]
+    [SuppressMessage("ReSharper", "UnusedMember.Global")]
+    [SuppressMessage("ReSharper", "InconsistentNaming")]
     public class Network
     {
         public List<Interface> v4 { get; set; }

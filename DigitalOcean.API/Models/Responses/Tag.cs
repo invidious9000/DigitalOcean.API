@@ -1,5 +1,9 @@
-﻿namespace DOcean.API.Models.Responses
+﻿using System.Diagnostics.CodeAnalysis;
+
+namespace DOcean.API.Models.Responses
 {
+    [SuppressMessage("ReSharper", "ClassNeverInstantiated.Global")]
+    [SuppressMessage("ReSharper", "UnusedMember.Global")]
     public class Tag
     {
         /// <summary>

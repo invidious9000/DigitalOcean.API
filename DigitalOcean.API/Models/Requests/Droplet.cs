@@ -73,7 +73,7 @@ namespace DOcean.API.Models.Requests
         public List<object> Tags { get; set; }
 
         /// <summary>
-        // /A boolean indicating whether to install the DigitalOcean agent for monitoring.
+        /// A boolean indicating whether to install the DigitalOcean agent for monitoring.
         /// </summary>
         [JsonProperty("monitoring")]
         public bool Monitoring { get; set; }

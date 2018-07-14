@@ -1,5 +1,8 @@
-﻿namespace DOcean.API.Models.Responses
+﻿using System.Diagnostics.CodeAnalysis;
+
+namespace DOcean.API.Models.Responses
 {
+    [SuppressMessage("ReSharper", "UnusedMember.Global")]
     public class Key
     {
         /// <summary>

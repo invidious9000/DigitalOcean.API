@@ -1,8 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics.CodeAnalysis;
 
 namespace DOcean.API.Models.Responses
 {
+    [SuppressMessage("ReSharper", "UnusedMember.Global")]
     public class Image
     {
         /// <summary>

@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Diagnostics.CodeAnalysis;
 
 namespace DOcean.API.Models.Responses
 {
@@ -6,6 +7,7 @@ namespace DOcean.API.Models.Responses
     /// Actions are records of events that have occurred on the resources in your account. These can be things like rebooting a
     /// Droplet, or transferring an image to a new region.
     /// </summary>
+    [SuppressMessage("ReSharper", "UnusedMember.Global")]
     public class Action
     {
         /// <summary>

@@ -1,9 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics.CodeAnalysis;
 
 namespace DOcean.API.Models.Responses
 {
-   public class Volume
+    [SuppressMessage("ReSharper", "UnusedMember.Global")]
+    public class Volume
     {
         /// <summary>
         /// The unique identifier for the Block Storage volume.
