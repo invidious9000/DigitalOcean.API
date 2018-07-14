@@ -35,9 +35,28 @@ namespace DOcean.API.Models.Requests
         public int? Port { get; set; }
 
         /// <summary>
+        /// This value is the time to live for the record, in seconds. This defines the time frame that clients
+        /// can cache queried information before a refresh should be requested.
+        /// </summary>
+        [JsonProperty("ttl")]
+        public int Ttl { get; set; }
+
+        /// <summary>
         /// The weight of records with the same priority (for SRV records only. null otherwise).
         /// </summary>
         [JsonProperty("weight")]
         public int? Weight { get; set; }
+
+        /// <summary>
+        /// An unsigned integer between 0-255 used for CAA records.
+        /// </summary>
+        [JsonProperty("flags")]
+        public int Flags { get; set; }
+
+        /// <summary>
+        /// The parameter tag for CAA records. Valid values are "issue", "issuewild", or "iodef"
+        /// </summary>
+        [JsonProperty("tag")]
+        public string Tag { get; set; }
     }
 }
